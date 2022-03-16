@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age, score) {
+            this.name = name;
+            this.age = age;
+            this.score = score
+            this.sayHello = function() {
+                console.log(this.name+' hello Word');   
+            }
+        }
+        Person.sex = "male"
+        Person.prototype.dance = function() {
+            console.log('I can dance');
+        }
+        
+        Person.prototype.id = "9527"
+        
+        Object.prototype.phoneNumber="1523452311"
+        
+        var that;
+        Person.prototype = {
+            constructor: Person,
+            sing: function() {
+                console.log('I can sing');
+                that=this;
+            },
+            dance: function() {
+            console.log('I can dance');
+            },
+            movie: function() {
+                console.log('this is a great movie');
+                that = this;
+            },
+            id: "123",
+        }
+        Array.prototype.sum = function() {
+            var sum = 0;
+            for (var i = 0; i < this.length; i++) {
+                sum += this[i];
+            }
+            return sum;
+        }; 
+        
+        function Student(name, age, score,garde){
+            Person.call(this,name, age, score)
+            this.garde = garde;
+            this.exam = function(res) {
+                score.push(res) 
+                console.log('socre is '+res)
+            }
+
+        } 
+
+        class Star {
+
+        }
+        Star.prototype.sing = function() {
+            console.log('we will rock you');
+
+        }
+
+       
+        const jack = new Person('jack', 18);
+        const tom = new Person('tom', 19);
+        const lili = new Person('lili',20,[60,50,70])
+        const harry = new Student('harry',21,[80,60,100],1) 
+        const ldh = new Star();
+        
+
+        
+        tom.sayHello();
+        jack.sayHello();
+        jack.dance();
+        console.log(Person.sex);
+        console.log(jack.sex);//静态成员只能通过构造函数来访问,不能通过对象来访问.
+        console.log(Person.prototype);
+        console.log(jack.__proto__ === Person.prototype); 
+        console.log(Object.prototype.__proto__);
+        // Jack=>Person=>Object=>null
+        console.log(jack.id);
+        console.log(jack.phoneNumber);
+        //this 指向
+        jack.sing();
+        console.log(that===jack)
+        //原型对象函数的this指向实例对象的jack
+        console.log(lili.score.sum())
+        harry.sayHello();
+        console.log(harry.score.sum())
+        console.log(harry.garde)
+        harry.exam(99);
+        console.log(harry.__proto__)
+        console.log(Student.prototype)
+        console.dir(ldh);
+        ldh.sing();
+        // 类创建的实例对象有__proto__ 原型指向 类的原型对象
+        console.log(ldh.__proto__ === Star.prototype);
+        console.log(typeof Star);
+        //  类的本质其实还是一个函数构造函数的另外一种写法
+        //  类有原型对象prototype 
+        console.log(Star.prototype);
+        //  类原型对象prototype 里面有constructor 指向类本身
+        console.log(Star.prototype.constructor);
+        //  类可以通过原型对象添加方法
+
+
+
+        
+    </script>
+</body>
+
+</html>
