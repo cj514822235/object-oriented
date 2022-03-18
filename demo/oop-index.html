@@ -9,6 +9,8 @@
 </head>
 
 <body>
+
+    <script src="array-demo.js" />
     <script>
         function Person(name, age, score) {
             this.name = name;
@@ -43,13 +45,6 @@
             },
             id: "123",
         }
-        Array.prototype.sum = function() {
-            var sum = 0;
-            for (var i = 0; i < this.length; i++) {
-                sum += this[i];
-            }
-            return sum;
-        }; 
         
         function Student(name, age, score,garde){
             Person.call(this,name, age, score)
@@ -75,7 +70,8 @@
         const lili = new Person('lili',20,[60,50,70])
         const harry = new Student('harry',21,[80,60,100],1) 
         const ldh = new Star();
-        
+
+        console.log(harry.score.sum())
 
         //输出
         tom.sayHello();
@@ -111,10 +107,6 @@
         //  类原型对象prototype 里面有constructor 指向类本身
         console.log(Star.prototype.constructor);
         //  类可以通过原型对象添加方法
-
-
-
-        
     </script>
 </body>
 
