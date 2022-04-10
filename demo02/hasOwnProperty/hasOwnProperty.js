@@ -30,6 +30,7 @@ const ownProperty = (obj) => {
         } else {
             console.log("0");
             console.log("reset");
+            console.log("status");
         }
     }
     return result
