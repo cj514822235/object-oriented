@@ -11,7 +11,7 @@ Cat.prototype.sayHello = () => {
     console.log('Hello world!');
 }
 
-const redCat = new Cat('Kitty', 'red');
+    const redCat = new Cat('Kitty', 'red');
 const greenCat = new Cat('Anny', 'green');
 
 console.log(typeof Cat);
