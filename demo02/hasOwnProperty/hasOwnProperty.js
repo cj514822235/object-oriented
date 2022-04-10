@@ -29,6 +29,8 @@ const ownProperty = (obj) => {
             result.push(key + ':' + obj[key])
         } else {
             console.log("0");
+            console.log("0");
+            console.log("0");
         }
     }
     return result
