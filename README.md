@@ -24,6 +24,7 @@ for (var i=0;i<5;i++) {
     setTimeout(()=>{console.log(i)},i*1000);
 }
 ```
-
+Creating a new branch is quick AND simple.
+modify Readme
 
 
