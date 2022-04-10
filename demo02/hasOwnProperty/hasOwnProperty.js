@@ -29,6 +29,7 @@ const ownProperty = (obj) => {
             result.push(key + ':' + obj[key])
         } else {
             console.log("0");
+            console.log("reset");
         }
     }
     return result
